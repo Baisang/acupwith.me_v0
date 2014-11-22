@@ -60,10 +60,10 @@ WSGI_APPLICATION = 'djangocup.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'cups',
-        'USER' : 'postgres',
-        'PASSWORD' : 'postgres',
-        'HOST' : 'localhost',
+        'NAME': 'cups', #previous: cups
+        'USER' : 'postgres', #postgres
+        'PASSWORD' : 'postgres', #postgres
+        'HOST' : 'localhost', #localhost
     }
 }
 

@@ -18,6 +18,9 @@
       special-text {
         color: #3a87ad;
       }
+      hidden{
+        display : none;
+      }
     </style>
     <link href="{% static 'cups/tester_files/bootstrap-responsive.css' %}" rel="stylesheet">
 
@@ -66,6 +69,13 @@
                         </select>
                         <input type="text" class="input-xlarge" placeholder="What are your interests?" name="topic">
                         <button type="submit" class="btn btn-primary">Pour</button>
+                        <!-- <hidden> -->
+                          <input type="text" class="input-xlarge" id="date">
+                          <input type="text" id="time">
+                          <script>
+                            document.getElementById("date").value = getdate();
+                          </script>
+                        <!-- </hidden> -->
                       </form>
 
                 </div>

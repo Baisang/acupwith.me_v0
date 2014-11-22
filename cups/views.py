@@ -16,7 +16,8 @@ def index(request):
 	return render(request, 'cups/index.html', {'cups_list':cups_list, 'locs_list':locs_list,})
 
 def add_cup(request):
+
 	location = get_object_or_404(Location,pk=request.POST['location'])
-	c = Cup(lister_name=request.POST['name'], location=location, topic=request.POST['topic'])
+	c = Cup(lister_name=request.POST['name'], location=location, topic=request.POST['topic'], timestamp=request.POST['time'])
 	c.save()
 	return HttpResponseRedirect(reverse('index'))
