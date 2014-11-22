@@ -1,0 +1,19 @@
+<form action='{% url "add" %}' method="post">
+	{% csrf_token %}
+	<input type="text" name="name"/>
+	<select name="location"> 
+	{% for location in locs_list %}
+		<option value="{{location.id}}">{{location.location_name}}</option>
+	{% endfor %}
+	</select>
+	<input type="text" name="topic"/>
+	<input type="submit" value="Submit" />
+</form>
+
+{% for cup in cups_list %}
+	<li>{{cup.lister_name}}</li>
+	<li>{{cup.location.location_name}}</li>
+	<li>{{cup.topic}}</li>
+	<li>{{cup.timestamp}}</li>
+	<br />
+{% endfor %}
