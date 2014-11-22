@@ -58,8 +58,11 @@
               <div id="collapseOne" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
-
-                      <form class="form-inline" action='{% url "add" %}' method="post">
+                          <script>
+                            function gah(){
+                            document.getElementById("date").value = Date();}
+                          </script>
+                      <form class="form-inline" onsubmit='gah();'action='{% url "add" %}' method="post">
                         {% csrf_token %}
                         <input type="text" class="input-large" placeholder="Name" name="name">
                         <select name="location">
@@ -69,13 +72,9 @@
                         </select>
                         <input type="text" class="input-xlarge" placeholder="What are your interests?" name="topic">
                         <button type="submit" class="btn btn-primary">Pour</button>
-                        <!-- <hidden> -->
-                          <input type="text" class="input-xlarge" id="date">
-                          <input type="text" id="time">
-                          <script>
-                            document.getElementById("date").value = getdate();
-                          </script>
-                        <!-- </hidden> -->
+                        <hidden>
+                          <input type="text" class="input-xlarge" id="date" name="time">
+                        </hidden>
                       </form>
 
                 </div>
@@ -85,17 +84,10 @@
         </div>
         <div class="span2">
           <div class="btn-group">
-            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-              Search by shop
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- replace these with actual stuff that will modify the list shown -->
-              <li> <a href="http://www.brewedcafe.com/">Brewed Awakenings</a></li>
-              <li> <a href="http://www.peets.com">Peet's Coffee</a></li>
-              <li> <a href="http://www.starbucks.com">Starbucks</a></li>
-              <li> <a href="http://www.ashateahouse.com/">Asha Tea House</a></li>
-            </ul>
+            <button onclick="location.reload()" class="btn btn-primary" id="ref">
+              <i class="icon-refresh icon-white"></i>
+              Refresh
+            </button>
           </div>
         </div>
       </div> <!-- /New post and search dropdown -->
@@ -124,7 +116,7 @@
       <hr>
 
       <footer>
-        <p>© Andy Li and Brian Sang, 2014. Contact us <special-text>@</special-text>
+        <p class="text-center"> <special-text>©</special-text> Andy Li and Brian Sang, 2014. Contact us <special-text>@</special-text>
           the University of California, Berkeley.</p>
       </footer>
 
